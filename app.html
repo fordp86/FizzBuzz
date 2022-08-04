@@ -23,6 +23,7 @@
     ></script>
 
     <link href="/css/site.css" rel="stylesheet" />
+    <link href="/css/prism.css" rel="stylesheet" />
 
     <link rel="icon" type="image/png" href="/img/ford-fav.jpg" />
   </head>
@@ -62,10 +63,17 @@
               <a class="nav-link" href="code.html">The Code</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="#">Git Repo</a>
+              <a
+                class="nav-link"
+                target="_blank"
+                href="https://github.com/fordp86/FizzBuzz"
+                >Git Repo</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="#">About</a>
+              <a class="nav-link" target="_blank" href="https://fordhenley.com"
+                >About</a
+              >
             </li>
           </ul>
         </div>
@@ -74,7 +82,65 @@
     <!-- End Nav Section-->
     <!-- Start Main Section -->
     <main class="flex-shrink-0">
-      <div class="container col-xxl-8 px-4 py-5"></div>
+      <div class="container px-4 py-5 mt-5">
+        <div class="row row-cols-1 row-cols-lg-2 g-5 py-5">
+          <div class="col-lg-4 col border-end border-2">
+            <h1>FizzBuzz: A Coding Project</h1>
+            <h4 class="lead">
+              When it counts you Fizz Buzz. A javascript coding exercise using loops.
+              write a program that prints the numbers from 1 to 100 for multiples of '3' display <b>"Fizz"</b> instead of the number and for the multiples of '5' display <b>"Buzz"</b>. If a multiple of both display <b>"FizzBuzz"</b>.
+            </h4>
+            <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+            <p>
+              Enter a Fizz and a Buzz value. Press the button and
+              the values will appear.
+            </p>
+          </div>
+          <div class="col col-lg-8">
+            <div>
+              <h5>Enter Values</h5>
+              <form class="row gy-2 gx-3">
+                <div class="col">
+                  <input
+                    id="fizzValue"
+                    type="number"
+                    class="form-control"
+                    placeholder="Fizz Value"
+                    value="0"
+                    aria-label="Fizz Value"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    id="buzzValue"
+                    type="number"
+                    class="form-control"
+                    placeholder="Buzz Value"
+                    value="100"
+                    aria-label="Buzz Value"
+                  />
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button
+                    id="btnSubmit"
+                    class="btn btn-dark btn-lg"
+                    type="button"
+                  >
+                    Display All
+                  </button>
+                </div>
+              </form>
+              <h2 class="mt-5 border-bottom border-2">Results</h2>
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <tbody id="results">
+                    <!-- Results Go Here -->
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- End Main Section-->
     <!-- Start Footer Section -->
@@ -123,6 +189,17 @@
       </div>
     </footer>
     <!-- End Footer Section -->
+    <!-- Start Template -->
+    <template id="fbTemplate">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <!-- End Template -->
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -139,5 +216,8 @@
       });
     </script>
     <script src="/js/site.js"></script>
+    <script>
+      document.getElementById("btnSubmit").addEventListener("click", getValues);
+    </script>
   </body>
 </html>
