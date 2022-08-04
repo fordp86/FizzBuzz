@@ -1,11 +1,11 @@
 //get the value from the Page
 function getValues() {
   // get values from the page
-  let fizzValue = document.getElementById("fizzValue").value;
-  let buzzValue = document.getElementById("buzzValue").value;
+  let fizz = document.getElementById("fizzValue").value;
+  let buzz = document.getElementById("buzzValue").value;
 
-  fizzValue = parseInt(fizzValue);
-  buzzValue = parseInt(buzzValue);
+  fizzValue = parseInt(fizz);
+  buzzValue = parseInt(buzz);
 
   if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
     // call generateNumbers
@@ -36,17 +36,41 @@ function fizzBuzz(fizzValue, buzzValue) {
   return returnArray;
 }
 
+function fizzBuzzB(fizzValue, buzzValue) {
+  let returnArray = [];
+  let fizz = false;
+  let buzz = false;
+
+  for (let i = 1; i < 100; i++) {
+    fizz = i % fizzValue == 0;
+    buzz = i % buzzValue == 0;
+
+    switch (true) {
+      case fizz && buzz: {
+        returnArray.push("FizzBuzz");
+        break;
+      }
+      case fizz: {
+        returnArray.push("Fizz");
+        break;
+      }
+      case buzz: {
+        returnArray.push("Buzz");
+        break;
+      }
+    }
+  }
+  return returnArray;
+}
+
 // display the numbers and mark even numbers bold
 function displayData(fbArray) {
   // get the table body from the page
   let tableBody = document.getElementById("results");
-
   // get template row
   let templateRow = document.getElementById("fbTemplate");
-
   // clear the table
   tableBody.innerHTML = "";
-
   for (let i = 0; i < fbArray.length; i += 5) {
     let tableRow = document.importNode(templateRow.content, true);
 
